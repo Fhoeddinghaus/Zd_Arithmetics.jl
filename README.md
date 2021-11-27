@@ -1,5 +1,7 @@
+![](https://img.shields.io/badge/julia-v1.6.0-blue) [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://fhoeddinghaus.github.io/Zd_Arithmetics.jl)
+
 # Zd_Arithmetics.jl
- Julia Package for handling integers modulo d data-type and operations
+Julia Package for handling integers modulo d using a data-type and operations.
 
 ## What can this package do?
 1. Introduce a data-type to store integers modulo `d`
