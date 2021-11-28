@@ -5,28 +5,28 @@
 
 Adds the values of `a` and `b` modulo `d` and returns a new ℤd{T, d}
 """
-+(a::ℤd{T, d}, b::ℤd{T, d}) where {T <: Integer, d} = ℤd{T,d}(T(mod(a.value + b.value, d)))
++(a::ℤd{T, d}, b::ℤd{T, d}) where {T <: Integer, d} = ℤd{T,d}(a.value + b.value)
 
 """
     -(a::ℤd{T, d}, b::ℤd{T, d}) where {T <: Integer, d}
 
 Subtracts the value of `b` from `a` modulo `d` and returns a new ℤd{T, d} (always positive).
 """
--(a::ℤd{T, d}, b::ℤd{T, d}) where {T <: Integer, d} = ℤd{T,d}(T(mod(a.value - b.value, d)))
+-(a::ℤd{T, d}, b::ℤd{T, d}) where {T <: Integer, d} = ℤd{T,d}(a.value - b.value)
 
 """
     *(a::ℤd{T, d}, b::ℤd{T, d}) where {T <: Integer, d}
 
 Multiplies the values of `a` and `b` modulo `d` and returns a new ℤd{T, d}
 """
-*(a::ℤd{T, d}, b::ℤd{T, d}) where {T <: Integer, d} = ℤd{T,d}(T(mod(a.value * b.value, d)))
+*(a::ℤd{T, d}, b::ℤd{T, d}) where {T <: Integer, d} = ℤd{T,d}(a.value * b.value)
 
 """
     *(a::Integer, b::ℤd{T, d}) where {T <: Integer, d}
 
 Enables ℤ × ℤd → ℤd multiplication.
 """
-*(a::Integer, b::ℤd{T, d}) where {T <: Integer, d} = ℤd{T,d}(T(mod(a * b.value, d)))
+*(a::Integer, b::ℤd{T, d}) where {T <: Integer, d} = ℤd{T,d}(a * b.value)
 *(a::ℤd{T, d}, b::Integer) where {T <: Integer, d} = b * a
 
 """
