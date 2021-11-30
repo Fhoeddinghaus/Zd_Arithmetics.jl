@@ -15,6 +15,13 @@ Subtracts the value of `b` from `a` modulo `d` and returns a new ℤd{T, d} (alw
 -(a::ℤd{T, d}, b::ℤd{T, d}) where {T <: Integer, d} = ℤd{T,d}(a.value - b.value)
 
 """
+    -(x::ℤd{T,d}) where {T <: Integer, d}
+
+Negating x in ℤd yields again x.
+"""
+-(x::ℤd{T,d}) where {T <: Integer, d} = x
+
+"""
     *(a::ℤd{T, d}, b::ℤd{T, d}) where {T <: Integer, d}
 
 Multiplies the values of `a` and `b` modulo `d` and returns a new ℤd{T, d}
@@ -46,6 +53,12 @@ If the function-result should again map to ℤd{T, d}, remember to convert the r
     ```
 """
 convert(::Type{K}, x::ℤd{T, d}) where {K <: Number, T <: Integer, d} = convert(K, x.value)
+"""
+    Int(x::ℤd{T,d}) where {T <: Integer, d}
+
+Converts a given ℤd{T, d} to a general Integer. Used mostly internal by Julia. See `convert(::Type{K}, x::ℤd{T, d})` for more details on conversion.
+"""
+Int(x::ℤd{T,d}) where {T <: Integer, d} = x.value
 
 """
     show(io::IO, x::ℤd{T, d}) where {T <: Integer, d}
@@ -53,6 +66,13 @@ convert(::Type{K}, x::ℤd{T, d}) where {K <: Number, T <: Integer, d} = convert
 Pretty-printing for ℤd as Integers.
 """
 show(io::IO, x::ℤd{T, d}) where {T <: Integer, d} = print(io, x.value)
+
+"""
+    trailing_zeros(x::ℤd{T, d}) where {T <: Integer, d}
+
+Internal Julia function needed in some cases, like when using Sets. Passes the call down to the value of x.
+"""
+trailing_zeros(x::ℤd{T, d}) where {T <: Integer, d} = trailing_zeros(Int(x.value))
 
 
 # There may be special cases where we want to simplify the operations, these can be appended below

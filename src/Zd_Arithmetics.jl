@@ -1,6 +1,6 @@
 module Zd_Arithmetics
 
-import Base: +, -, *, convert, show
+import Base: +, -, *, convert, show, trailing_zeros
 
 export 
 
@@ -9,7 +9,9 @@ export
     -,
     *,
     convert,
-    show
+    show,
+    trailing_zeros,
+    Int
 
 include("datatype.jl")
 include("operations.jl")
