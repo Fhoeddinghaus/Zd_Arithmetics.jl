@@ -10,8 +10,7 @@ export
     *,
     convert,
     show,
-    trailing_zeros,
-    Int
+    trailing_zeros
 
 include("datatype.jl")
 include("operations.jl")
