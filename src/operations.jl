@@ -61,6 +61,13 @@ Converts a given ℤd{T, d} to a general Integer. Used mostly internal by Julia.
 Int(x::ℤd{T,d}) where {T <: Integer, d} = x.value
 
 """
+    AbstractFloat(x::ℤd{T,d}) where {T <: Integer, d}
+
+Converts a given ℤd{T, d} to a general Float. Used mostly internal by Julia. See `convert(::Type{K}, x::ℤd{T, d})` for more details on conversion.
+"""
+AbstractFloat(x::ℤd{T,d}) where {T <: Integer, d} = AbstractFloat(x.value)
+
+"""
     show(io::IO, x::ℤd{T, d}) where {T <: Integer, d}
 
 Pretty-printing for ℤd as Integers.
@@ -105,3 +112,10 @@ Special case of multiplication in ℤ₂ using Booleans.
 Special case of pretty-printing in ℤ₂ using Booleans.
 """
 show(io::IO, x::ℤ₂) = print(io, Int8(x.value))
+
+"""
+    inv(A::Matrix{ℤd{T, d}})
+
+Invert a matrix `A` in ℤd by multiplying the inverse in ℝ with the determinant.
+"""
+inv(A::Matrix{ℤd{T, d}}) where {T <: Integer, d} = Matrix{ℤd{T, d}}(Int.(round.(inv(Matrix{Int}(A)) * Int(round(det(A); digits=0)); digits=0)))

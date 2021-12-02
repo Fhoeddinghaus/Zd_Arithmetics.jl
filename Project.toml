@@ -2,3 +2,6 @@ name = "Zd_Arithmetics"
 uuid = "dae23b14-1d9f-48bd-9860-35d57b14b1c1"
 authors = ["Fhoeddinghaus <info@xefli.de>"]
 version = "0.1.0"
+
+[deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
