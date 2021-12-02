@@ -53,6 +53,17 @@ If the function-result should again map to ℤd{T, d}, remember to convert the r
     ```
 """
 convert(::Type{K}, x::ℤd{T, d}) where {K <: Number, T <: Integer, d} = convert(K, x.value)
+
+"""
+Promote the `ℤd{T, d}` type over `T`.
+"""
+promote_rule(::Type{T}, ::Type{ℤd{T, d}}) where {T <: Integer, d} = ℤd{T,d}
+
+"""
+Promote the `ℤ₂` type over `Bool`.
+"""
+promote_rule(::Type{Bool}, ::Type{ℤ₂}) where {d} = ℤ₂
+
 """
     Int(x::ℤd{T,d}) where {T <: Integer, d}
 

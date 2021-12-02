@@ -2,7 +2,7 @@ module Zd_Arithmetics
 
 using LinearAlgebra
 
-import Base: +, -, *, convert, show, trailing_zeros, Int, AbstractFloat, inv
+import Base: +, -, *, convert, promote_rule, show, trailing_zeros, Int, AbstractFloat, inv
 
 export 
 
@@ -11,6 +11,7 @@ export
     -,
     *,
     convert,
+    promote_rule,
     show,
     trailing_zeros,
     Int,
