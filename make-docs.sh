@@ -8,7 +8,7 @@ git checkout --orphan gh-pages
 git reset
 
 rm -rf ../src
-# rm ../Manifest.toml
+rm ../Manifest.toml
 rm ../Project.toml
 rm ../README.md
 cp -r build/ ../
